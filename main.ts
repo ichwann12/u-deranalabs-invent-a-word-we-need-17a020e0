@@ -7,6 +7,9 @@ import { fileURLToPath } from "node:url";
 
 const repoDir = dirname(fileURLToPath(import.meta.url));
 const entry = readFileSync(join(repoDir, "entry.txt"), "utf8").trim();
+
+// Output dir: MAKEFUN_BOT_DIR takes precedence when both are set; either
+// variable names the same single directory where output.txt is written.
 const outDir = process.env.MAKEFUN_BOT_DIR ?? process.env.MAKEFUN_OUTPUT_DIR;
 
 if (!outDir) {
